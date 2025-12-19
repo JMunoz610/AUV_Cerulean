@@ -5,7 +5,8 @@ Autonomous Underwater Vehicles (AUVs) are powerful tools for seafloor mapping an
 This project demonstrates a **low-cost, modular integration** of a Cerulean 450 kHz side-scan sonar (SSS) with MIT’s **SeaBeaver III micro-AUV**, enabling wide-swath imaging and laying the groundwork for future machine learning–based navigation.
 
 <img src="images/seabeaver.jpg" width="60%" />
-*Figure 1: SeaBeaver III in its unaltered state.*
+Figure 1: SeaBeaver III in its unaltered state.
+
 ---
 
 ## Objectives
@@ -24,7 +25,7 @@ This project demonstrates a **low-cost, modular integration** of a Cerulean 450 
 - **Software:** MOOS-IvP middleware, PyMOOS bridge, Python scripts for sensor control and logging  
 
 <img src="images/sss_module.png" width="60%" />
-*Figure 2: Side Scan Sonar Module hardware layout.*
+Figure 2: Side Scan Sonar Module hardware layout.
 
 ---
 
@@ -47,7 +48,7 @@ This project demonstrates a **low-cost, modular integration** of a Cerulean 450 
    - Pool trials demonstrated successful sonar activation, neutral buoyancy, and mission execution.  
 
 <img src="images/full_seabeaver.png" width="60%" />
-*Figure 3: Completed AUV with integrated side‑scan sonar module.*
+Figure 3: Completed AUV with integrated side‑scan sonar module.
 
 ---
 
@@ -57,7 +58,7 @@ This project demonstrates a **low-cost, modular integration** of a Cerulean 450 
 - Collected side-scan sonar data during pool trials, establishing proof-of-concept.  
 
 <img src="images/pool_scan.png" width="60%" />
-*Figure 4: Sonar Scan of pool floor.*
+Figure 4: Sonar Scan of pool floor.
 
 ---
 
