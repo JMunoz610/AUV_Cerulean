@@ -1,0 +1,111 @@
+ServerHost = localhost
+ServerPort = 9000
+Community = VAL
+
+ProcessConfig = ANTLER
+{
+
+  //staggers the launch of each MOOS process by 500 milliseconds to prevent startup conflicts
+  //and reduce CPU load.
+  MSBetweenLaunches = 100
+
+  Run = MOOSDB                    @ NewConsole = false
+  Run = pShare                    @ NewConsole = false
+  Run = uXMS                      @ NewConsole = false
+  Run = uProcessWatch		       @ NewConsole = false
+  Run = uQueryDB                  @ NewConsole = false
+  Run = pLogger                   @ NewConsole = false
+  
+  // custom app
+  Run = pOmniscan_SS              @ NewConsole = false
+
+  // script to control sensors
+  Run = /home/seabeaver/Pymoos_test.py @ NewConsole = false
+  //Run = /home/seabeaver/Omniscan_and_Pymoos_script.py @ NewConsole = false
+}
+
+ProcessConfig = MOOSDB
+{
+}
+
+// might not need this
+ProcessConfig = pShare
+{
+  
+  AppTick = 4
+  CommsTick = 4
+
+  Input = route=192.168.0.102:9071 
+  
+  Log = true  
+  verbose = true
+}
+
+// might not need this
+ProcessConfig = uXMS
+{
+  AppTick = 4
+  CommsTick = 4
+
+  //var = RAW_GPS
+  //var = RAW_DEPTH
+  //var = RAW_IMU
+}
+
+// might not need this
+ProcessConfig = uProcessWatch
+{
+  AppTick   = 4
+  CommsTick = 4
+
+  watch_all = true
+
+  nowatch = uXMS*, uQueryDB*
+
+  allow_retractions = true   // Always allow run-warnings to be retracted if proc re-appears
+
+  // A negative value means summary only when status changes.
+  summary_wait = 2 // Seconds. Default is -1.
+  post_mapping = PROC_WATCH_FULL_SUMMARY, UPW_FULL_SUMMARY
+}
+
+// might not need this
+ProcessConfig = uQueryDB
+{
+  AppTick   = 4
+  CommsTick = 4
+
+  subs = RAW_GPS
+  subs = RAW_DEPTH
+  subs = RAW_IMU
+}
+
+ProcessConfig = pLogger
+{
+  // might want to be faster
+  AppTick = 4
+  CommsTick = 4
+
+  //specify log location and name
+  PATH = /home/seabeaver/moos-ivp/logs
+  File = LOG_VAL_Frontseat
+
+  //enables synchronized logging (will log all subscribed variables together every 0.2s)
+  SyncLog = true @ 0.2
+  
+  //Logs each variable as soon as it arrives, independently
+  AsyncLog = true
+
+  //Appends timestamp to the log file name
+  FileTimeStamp = true
+
+  Log = RAW_GPS         @ 0
+  Log = RAW_IMU         @ 0
+  Log = RAW_DEPTH       @ 0
+}
+
+ProcessConfig = pOmniscan_SS
+{
+  AppTick = 4
+  CommsTick = 4
+}
