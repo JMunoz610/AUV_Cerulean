@@ -1,4 +1,4 @@
-# AUV Payload Module Integration: Cerulean Side-Scan Sonar on SeaBeaver III
+# AUV Payload Module Integration: Cerulean Side-Scan Sonar on SeaBeaver III (Aug 2025 - Dec 2025)
 
 ## Motivation
 Autonomous Underwater Vehicles (AUVs) are powerful tools for seafloor mapping and habitat assessment, but high-resolution sonar payloads are often expensive and difficult to integrate.  
